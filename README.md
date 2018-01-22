@@ -1,6 +1,3 @@
- # Hello World!
- 
- My name is Chethana1222
+Welcome to Javascript World
 
-
-Working with Visual studio is Fun
+Advance Javascript and ES6 Topics covered
