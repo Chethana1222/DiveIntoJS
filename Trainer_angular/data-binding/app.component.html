@@ -1,0 +1,49 @@
+<div>
+    <div class="jumbotron">
+        <h1>Databinding</h1>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">Interpolation </h3>
+        </div>
+        <div class="panel-body">
+           <div class="well">
+               <span>{{ 'City : '+ city }}</span>
+           </div>
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">Property Binding</h3>
+        </div>
+        <div class="panel-body">
+           <div class="well">
+               <span>State</span>
+               <input type="text" [value]="state" class="form-control">
+           </div>
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">Event Binding</h3>
+        </div>
+        <div class="panel-body">
+           <div class="well">
+               <span>{{ 'Current Time : '+ currentTime }}</span>
+               <hr>
+               <button class="btn btn-primary" (click)="changeTime()">Change Time</button>
+           </div>
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">Two way Binding</h3>
+        </div>
+        <div class="panel-body">
+           <div class="well">
+               <span>{{ 'Model Property Value : '+ modelProperty }}</span>
+               <input type="text" class="form-control" [(ngModel)]="modelProperty">
+           </div>
+        </div>
+    </div>
+</div>

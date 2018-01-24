@@ -1,0 +1,21 @@
+<div>
+    <div class="jumbotron">
+        <h1>Nested Components</h1>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">AppComponent - Root Component</h3>
+        </div>
+        <div class="panel-body">
+          <div class="well">
+              <h1>App Component</h1>
+              <hr>
+              <span>{{' Inner Component Messge : '+ innerVariable.innerMsg}}</span>
+              <hr>
+              <span>{{ 'Name: '+personObjHolder.name+' Age: '+personObjHolder.age }}</span>
+          </div>
+          <inner-app #innerVariable [appMsgHolder]="appMsg" (innerEvent)="getMsg($event)" (personEvent)="getPersonDetails($event)"></inner-app>
+        </div>
+      </div>
+</div>
+

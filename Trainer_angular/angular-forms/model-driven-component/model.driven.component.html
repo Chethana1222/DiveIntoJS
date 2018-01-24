@@ -1,0 +1,29 @@
+<div>
+    <form [formGroup]="personForm" (ngSubmit)="submitForm()">
+        <div class="form-group">
+            <label>*Name</label>
+            <input type="text" class="form-control" formControlName="name">
+            <small *ngIf="!name.pristine && name.hasError('required')" class="text-danger">Name is required</small>
+            <small *ngIf="name.hasError('pattern')" class="text-danger">Only Alphabets allowed</small>
+        </div>
+        <div class="form-group">
+            <label>Email</label>
+            <input type="text" class="form-control" formControlName="email">
+            <small *ngIf="email.hasError('invalidMailId')" class="text-danger">Invalid Email Id</small>
+            <small *ngIf="email.pending" class="text-warning">Validation is in progress...</small>
+        </div>
+        <div class="form-group">
+            <label>City</label>
+            <select formControlName="city" class="form-control">
+                <option value="bangalore">Bangalore</option>
+                <option value="chennai">Chennai</option>
+                <option value="mumbai">Mumbai</option>
+            </select>
+        </div>
+        <button type="submit" [disabled]="!personForm.valid" class="btn btn-primary">Submit</button>
+        <button type="reset" class="btn btn-primary">Reset</button>
+        <hr>
+        <p>Form Value : {{ personForm.value | json }}</p>
+        <p>Form Status : {{ personForm.status | json }}</p>
+    </form>
+</div>

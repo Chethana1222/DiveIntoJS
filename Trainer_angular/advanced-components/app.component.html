@@ -1,0 +1,23 @@
+<div>
+    <div class="jumbotron">
+        <h1>Advanced Components</h1>
+    </div>
+    <div>
+        <h2 popup message="Message to h2 from Host" #popupdir="popup">Directive - Check1</h2>
+        <p popup message="Message to p from Host">Directive - Check2</p>
+    </div>
+    <div>
+        <button (click)="popupdir.displayMessage()" class="btn btn-default">Execute h2 tag Display Message in Directive</button>
+    </div>
+    <br/>
+    <div transclude panelTitle="Transclude Title">Transclude Message</div>
+   
+   <div transclude panelTitle="Person Table">
+       <kt-table [items]="persons"></kt-table>    
+   </div>
+   
+    <div transclude panelTitle="Employees Table">
+       <kt-table [items]="employees"></kt-table>    
+   </div>
+
+</div>

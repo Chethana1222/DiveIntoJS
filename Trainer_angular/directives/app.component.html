@@ -1,0 +1,88 @@
+<div>
+    <div class="jumbotron">
+        <h1>Angular4 Directives</h1>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">Structural Directives</h3>
+        </div>
+        <div class="panel-body">
+            <div class="well">
+                <h3>NgIf - Structural Directive</h3>
+                <div *ngIf="showDiv">
+                    <span>This section is displayed because showDiv property is set to true</span>
+                </div>
+                <hr>
+                <button class="btn btn-primary" (click)="showDiv=!showDiv">{{ showDiv?" Hide Div ":" Show Div "}}</button>
+            </div>
+            <div class="well">
+                <h3>NgForOf - Structural Directive</h3>
+                <ul>
+                    <li *ngFor="let city of cities">{{ city }}</li>
+                </ul>
+                <hr>
+                <span>Employees : </span>
+                <select class="form-control">
+                    <option *ngFor="let employee of employees; let i=index" [value]="employee.id">{{ employee.name }}</option>
+                </select>
+            </div>
+            <div class="well">
+                <h3>NgSwitchDefault - Structural Directive</h3>
+                <span>{{ 'Counter : '+counter }}</span>
+                <hr>
+                <div [ngSwitch]="counter">
+                    <div *ngSwitchCase="0">Zero</div>
+                    <div *ngSwitchCase="1">One</div>
+                    <div *ngSwitchCase="2">Two</div>
+                    <div *ngSwitchCase="3">Three</div>
+                    <div *ngSwitchDefault>Not Supported</div>
+                </div>
+                <hr>
+                <button class="btn btn-primary" (click)="counter=counter+1">Increment Counter</button>
+            </div>
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">Attribute Directives</h3>
+        </div>
+        <div class="panel-body">
+            <div class="well">
+                <h3>NgClass-Attribute Directive</h3>
+                <button class="btn" [ngClass]="{'btn-primary': isPrimary}" (click)="isPrimary=!isPrimary">Sample Button</button>
+            </div>
+            <div class="well">
+                <h3>NgStyle-Attribute Directive</h3>
+                <hr/>
+                <div [ngStyle]="{'font-weight': fontWeight,'font-style':fontStyle,'font-size':fontSize}">Change the Style of this text using NgStyle</div>
+                <hr/>
+                <input type="checkbox" (change)="fontWeight=fontWeight=='bold'?'normal':'bold'">Bold &nbsp;
+                <input type="checkbox" (change)="fontStyle=fontStyle=='italic'?'normal':'italic'">Italic &nbsp;
+                <span>Size(px): </span><input type="textbox" (change)="changeSize($event)">
+            </div>
+            <div class="well">
+                <h3>NgModel-Attribute Directive</h3>
+                <hr>
+                <span>{{ 'Data from ModelProperty: '+modelProperty}}</span><br/>
+                <span>Model Property: </span><input type="text" [(ngModel)]="modelProperty" />
+            </div>
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">Custom Directives</h3>
+        </div>
+        <div class="panel-body">
+            <div class="well">
+                <h3>Custom Directive</h3>
+                <div>
+                    <button class="btn" data-exBtn data-style="btn-default">Default Button</button>
+                    <button class="btn" data-exBtn data-style="btn-primary">Primary Button</button>
+                    <button class="btn" data-exBtn data-style="btn-success">Success Button</button>
+                    <button class="btn" data-style="btn-warning">Warning Button</button>
+                    <button class="btn" data-style="btn-danger">Danger Button</button>
+                </div>
+           </div>
+        </div>
+    </div>
+</div>
