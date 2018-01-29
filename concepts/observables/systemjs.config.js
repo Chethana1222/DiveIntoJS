@@ -37,6 +37,9 @@
             },
             rxjs: {
                 defaultExtension: 'js'
+            },
+             systemjs: {
+                defaultExtension: 'js'
             }
         }
     });
