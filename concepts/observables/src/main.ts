@@ -62,7 +62,7 @@ observablePromiseObj.subscribe((data)=>{
 },null,()=>{console.log("Observable consumed promise using subscribe method")});
 
 
-console.log("... Creating observables uding moverover event ........");
+console.log("... Creating observables using moverover event ........");
 
 var observableEvent:Observable<MouseEvent>=Observable.fromEvent(document,'mousemove');
 
@@ -71,4 +71,9 @@ var observableEvent:Observable<MouseEvent>=Observable.fromEvent(document,'mousem
 observableEvent.subscribe((event:MouseEvent)=>{
    // console.log(event.constructor.name); //MouseEvent
     document.querySelector("#target").innerHTML=`X: ${event.x} Y: ${event.y}`;
-})
+});
+
+console.log("... Creating observables using inbuilt of method ........");
+
+var ofObj:Observable<number>=Observable.of(1,2,3,4,5,6,7);
+ofObj.subscribe((data)=>{console.log(data);});
