@@ -40,6 +40,7 @@ var promise3=Promise.resolve(34);
 
 var allPromise=Promise.all([promise2,promise1,promise1,promise3]);
 
+console.log("consume promises using then method........");
 allPromise.then((data)=>{
 // console.log(data[0]);
 // console.log(data[1]);
@@ -47,4 +48,14 @@ allPromise.then((data)=>{
 data.forEach(element => {
     console.log(element);
 }); 
-})
+});
+
+console.log("... Converting promise to observables........");
+
+var observablePromiseObj:Observable<number[]> = Observable.fromPromise(allPromise);
+
+console.log(".......consume promises using subscribe method.");
+
+observablePromiseObj.subscribe((data)=>{
+    console.log(data);
+},null,()=>{console.log("Observable consumed promise using subscribe method")})
