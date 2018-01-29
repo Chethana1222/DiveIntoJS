@@ -1,3 +1,4 @@
+//import { Promise } from "@angular/core"
 import "rxjs/Rx";;
 import { Observable } from "rxjs/Observable";
 
@@ -6,13 +7,14 @@ var observableObject:Observable<number> = Observable.from([23,44,54,767]);
 
 //Consume observable 
 
+console.log("..........Concept of Observables........");
 observableObject.subscribe(
 (data:number)=>{
 console.log(data);
 },(err)=>{
 console.log(err);
 },()=>{
-console.log("Task successfully completed");
+console.log("Task1 successfully completed");
 });
 
 //Create observable object which returns array as data
@@ -26,20 +28,23 @@ console.log(data);
 },(err)=>{
 console.log(err);
 },()=>{
-console.log("Task successfully completed");
+console.log("Task2 successfully completed");
 });
 
+console.log("..........Concept of multiple promises........");
 //Concept of multiple promises
 
-var promise1=new Promise<number>.resolve(2);
-var promise2=new Promise.resolve(3);
-var promise3=new Promise(34);
+var promise1=Promise.resolve(2);
+var promise2=Promise.resolve(3);
+var promise3=Promise.resolve(34);
 
-var allPromise=Promise.all([promise1,promise2,promise3]);
+var allPromise=Promise.all([promise2,promise1,promise1,promise3]);
 
 allPromise.then((data)=>{
-console.log(data[0]);
-console.log(data[1]);
-console.log(data[2]);
-
+// console.log(data[0]);
+// console.log(data[1]);
+// console.log(data[2]);
+data.forEach(element => {
+    console.log(element);
+}); 
 })
