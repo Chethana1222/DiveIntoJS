@@ -2,6 +2,7 @@
 import "rxjs/Rx";;
 import { Observable } from "rxjs/Observable";
 
+
 //Create observable object which returns stream of data
 var observableObject:Observable<number> = Observable.from([23,44,54,767]);
 
@@ -58,4 +59,16 @@ console.log(".......consume promises using subscribe method.");
 
 observablePromiseObj.subscribe((data)=>{
     console.log(data);
-},null,()=>{console.log("Observable consumed promise using subscribe method")})
+},null,()=>{console.log("Observable consumed promise using subscribe method")});
+
+
+console.log("... Creating observables uding moverover event ........");
+
+var observableEvent:Observable<MouseEvent>=Observable.fromEvent(document,'mousemove');
+
+//console.log(observableEvent.constructor.name);  //FromEventObservable
+
+observableEvent.subscribe((event:MouseEvent)=>{
+   // console.log(event.constructor.name); //MouseEvent
+    document.querySelector("#target").innerHTML=`X: ${event.x} Y: ${event.y}`;
+})
