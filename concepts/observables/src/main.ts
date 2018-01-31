@@ -1,4 +1,3 @@
-//import { Promise } from "@angular/core"
 import "rxjs/Rx";;
 import { Observable } from "rxjs/Observable";
 
@@ -77,3 +76,13 @@ console.log("... Creating observables using inbuilt of method ........");
 
 var ofObj:Observable<number>=Observable.of(1,2,3,4,5,6,7);
 ofObj.subscribe((data)=>{console.log(data);});
+
+
+console.log("... Creating observables using logic in subscribe method ........");
+var obSub:Observable<number>=Observable.from([1,2,3]);
+obSub.subscribe((data)=>{console.log(data*10);});
+
+console.log("... Creating observables using filters for logic ........");
+var obF:Observable<number>=Observable.from([1,2,3]).map(n=>n*10);
+obF.subscribe((data)=>{console.log(data);});
+console.log("... Creating observables using filters for logic Ends........");
