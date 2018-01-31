@@ -92,3 +92,8 @@ console.log("... Creating observables using interval and filter take methods ...
 
 var obF1:Observable<number>=Observable.interval(1000).take(2);
 obF1.subscribe((data)=>{console.log(data);});
+
+console.log("... Creating observables using range and filter delay methods ........");
+//Produce the data starting from number 5 producing 5 data delaying 3000 miliseconds
+var obF2:Observable<number>=Observable.range(5,5).delay(3000);
+obF2.subscribe((data)=>{console.log(data);});
