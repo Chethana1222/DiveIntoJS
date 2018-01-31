@@ -86,3 +86,9 @@ console.log("... Creating observables using filters for logic ........");
 var obF:Observable<number>=Observable.from([1,2,3]).map(n=>n*10);
 obF.subscribe((data)=>{console.log(data);});
 console.log("... Creating observables using filters for logic Ends........");
+
+
+console.log("... Creating observables using interval and filter take methods ........");
+
+var obF1:Observable<number>=Observable.interval(1000).take(2);
+obF1.subscribe((data)=>{console.log(data);});
