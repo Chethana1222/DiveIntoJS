@@ -105,3 +105,12 @@ Observable.from([10,20,30,40])
     .subscribe((result:number)=>{
         console.log(`Result index is : ${result}`);
     });
+
+
+    console.log("... distinct methods ........");
+
+Observable.from([122,323,2323,323,122,333,333,23,23])
+    .distinct()
+    .subscribe((result:number)=>{
+        console.log(`Result is : ${result}`);
+    });
