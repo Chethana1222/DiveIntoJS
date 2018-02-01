@@ -134,4 +134,15 @@ import { Observable } from "rxjs/Observable";
             Observable.from([1,2,3,4,5]).reduce((x,y)=>x*y).subscribe(val=>console.log(`Reduce = ${val}`));
 
            
+            console.log("Boolean Operators");
+            Observable.from([45,878,55,85]).every(val=>val%2===0).subscribe(val=>console.log(`Every = ${val}`));
+           
+            Observable.from([42,878,52,82]).every(val=>val%2===0).subscribe(val=>console.log(`Every = ${val}`));
+           
+            // sequenceEqual if both array passed contains same sequence of data then returns true
+            Observable.from([42,878,52,82])
+                .sequenceEqual(
+                    Observable.from([42,878,52,1])
+                )
+                .subscribe(val=>console.log(`sequenceEqual = ${val}`));
         })();
