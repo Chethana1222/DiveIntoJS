@@ -135,29 +135,28 @@ import { Observable } from "rxjs/Observable";
 
            
             console.log("Boolean Operators");
-            Observable.from([45,878,55,85]).every(val=>val%2===0).subscribe(val=>console.log(`Every = ${val}`));
-           
-            Observable.from([42,878,52,82]).every(val=>val%2===0).subscribe(val=>console.log(`Every = ${val}`));
-           
+            Observable.from([45,878,55,85]).every(val=>val%2===0).subscribe(val=>console.log(`Every = ${val}`));           
+            Observable.from([42,878,52,82]).every(val=>val%2===0).subscribe(val=>console.log(`Every = ${val}`));           
             // sequenceEqual if both array passed contains same sequence of data then returns true
             Observable.from([42,878,52,82])
                 .sequenceEqual(
                     Observable.from([42,878,52,1])
                 )
                 .subscribe(val=>console.log(`sequenceEqual = ${val}`));
-
-            Observable.from([2,20,30,6,23]).filter(val=>val%2===0).subscribe(val=>console.log(`Filter= ${val}`));
-                
-            Observable.from([221,20,30,6,23]).find(val=>val%2===0).subscribe(val=>console.log(`Find= ${val}`));
-     
+            Observable.from([2,20,30,6,23]).filter(val=>val%2===0).subscribe(val=>console.log(`Filter= ${val}`));               
+            Observable.from([221,20,30,6,23]).find(val=>val%2===0).subscribe(val=>console.log(`Find= ${val}`));   
             Observable.from([2,20,30,6,23]).first().subscribe(val=>console.log(`first= ${val}`));
-
             Observable.from([2,20,30,6,23]).skip(2).subscribe(val=>console.log(`skip= ${val}`));
-
             Observable.from([2,20,30,6,23]).take(2).subscribe(val=>console.log(`take= ${val}`));
             Observable.from([{id:1,name:'pk'},{id:2,name:'ck'}]).pluck('name').subscribe(val=>console.log(val));
         
-        
-        
+        console.log("Transformation operators");
+
+        Observable.from([42,78,1,22]).delay(10).subscribe(val=>console.log(`Delay: ${val}`));
+        Observable.from([42,78,1,22]).findIndex(x=>x>70).subscribe(val=>console.log(`FindIndex: ${val}`));
+        Observable.from([42,78,1,22]).map(x=>x*10).subscribe(val=>console.log(`Map: ${val}`));
+
+       
+
         
         })();
