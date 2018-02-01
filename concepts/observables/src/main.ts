@@ -145,4 +145,10 @@ import { Observable } from "rxjs/Observable";
                     Observable.from([42,878,52,1])
                 )
                 .subscribe(val=>console.log(`sequenceEqual = ${val}`));
+
+            Observable.from([2,20,30,6,23]).filter(val=>val%2===0).subscribe(val=>console.log(`Filter= ${val}`));
+                
+            Observable.from([2,20,30,6,23]).find(val=>val%2===0).subscribe(val=>console.log(`Find= ${val}`));
+     
+
         })();
