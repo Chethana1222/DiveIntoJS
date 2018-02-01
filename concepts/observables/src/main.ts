@@ -155,4 +155,9 @@ import { Observable } from "rxjs/Observable";
             Observable.from([2,20,30,6,23]).skip(2).subscribe(val=>console.log(`skip= ${val}`));
 
             Observable.from([2,20,30,6,23]).take(2).subscribe(val=>console.log(`take= ${val}`));
+            Observable.from([{id:1,name:'pk'},{id:2,name:'ck'}]).pluck('name').subscribe(val=>console.log(val));
+        
+        
+        
+        
         })();
