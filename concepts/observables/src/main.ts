@@ -114,3 +114,11 @@ Observable.from([122,323,2323,323,122,333,333,23,23])
     .subscribe((result:number)=>{
         console.log(`Result is : ${result}`);
     });
+
+    console.log("... Merge methods ........");
+
+    Observable.interval(3000)
+        .merge(Observable.interval(1000))
+        .subscribe((result:number)=>{
+            console.log(result);
+        });
