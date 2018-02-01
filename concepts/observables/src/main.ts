@@ -156,7 +156,9 @@ import { Observable } from "rxjs/Observable";
         Observable.from([42,78,1,22]).findIndex(x=>x>70).subscribe(val=>console.log(`FindIndex: ${val}`));
         Observable.from([42,78,1,22]).map(x=>x*10).subscribe(val=>console.log(`Map: ${val}`));
 
-       
+        console.log("Combination operators");
 
+        Observable.from([42,78,1,22]).concat(Observable.from([2,4,5])).subscribe(val=>console.log(`concat: ${val}`));
+        Observable.interval(2000).take(2).merge(Observable.interval(1000).take(2)).subscribe(val=>console.log(`merge: ${val}`));        
         
         })();
