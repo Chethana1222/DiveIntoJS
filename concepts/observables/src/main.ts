@@ -176,11 +176,11 @@ number=0 Throw exception
 number=1 Complete(Don't send any more data)
 */
 
-new Observable((observer:Subscriber<number>)=>{
+var obCreateObj: Observable<number> = new Observable(observer=>{
     var randomNumber;
-
     setInterval(()=>{
-        randomNumber=Math.round(Math.random()*10);
+        try{
+            randomNumber=Math.round(Math.random()*10);
         if(randomNumber>=2){
             observer.next(randomNumber);
         }
@@ -189,5 +189,16 @@ new Observable((observer:Subscriber<number>)=>{
         }
         else
         observer.complete();
+        }
+        catch(err){
+            observer.error(err);
+        }
+
     },1000);
 });
+
+obCreateObj.subscribe((data)=>{
+    console.log(`Random Number : ${data}`);
+},(err)=>{
+    console.log(err);
+},()=>console.log("Task done"));
