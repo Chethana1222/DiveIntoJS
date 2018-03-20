@@ -1,0 +1,103 @@
+Node.js Unit Testing Tutorial with Jasmine:
+
+Testing is a key element to any application. For Node.js, the framework available for Testing is called Jasmine. In early 2000, there was a framework for testing JavaScript applications called JsUnit. Later this framework got upgraded and is now known as jasmine.
+Jasmine helps in automated Unit Testing, something which has become quite a key practice when developing and deploying modern day web applications.
+In this tutorial, you will learn how to get your environment setup with jasmine and how you can start testing your first Node.js application with jasmine.
+(1) Overview of Jasmine for testing Node.js applications
+Jasmine is a Behavior Driven Development(BDD) testing framework for JavaScript. It does not rely on browsers, DOM, or any JavaScript framework. Thus, it's suited for websites, Node.js projects, or anywhere that JavaScript can run. To start using Jasmine, you need to first download and install the necessary Jasmine modules.
+Next you would need to initialize your environment and inspect the jasmine configuration file. The below steps shows how to setup Jasmine in your environment
+Step 1) Installing the NPM Modules
+To use the jasmine framework from within a Node application, the jasmine module needs to be installed first. To install the jasmine-node module, run the below command.
+npm install jasmine-node
+
+Step 2) Initializing the project – By doing this, jasmine creates a spec directory and configuration json for you. The spec directory is used to store all your test files. By doing this, jasmine will know where all your tests are, and then can execute them accordingly. The JSON file is used to store specific configuration information about jasmine.
+To initialize the jasmine environment, run the below command
+jasmine init
+
+Step 3) Inspect your configuration file. The configuration file will be stored in the spec/support folder as jasmine.json. This file enumerates the source files and spec files you would like the Jasmine runner to include.
+Package.json file would consists of following:
+{
+  "spec_dir": "spec",
+  "spec_files": [
+    "**/*[sS]pec.js"
+  ],
+  "helpers": [
+    "helpers/**/*.js"
+  ],
+  "stopSpecOnExpectationFailure": false,
+  "random": true
+}
+
+Here spec_dir would show the successful execution
+spec_files show the successful execution 
+Note that the spec directory is specified here. As noted earlier, when jasmine runs it searches for all tests in this directory.
+The next thing to note is the spec_files parameter – This denotes that whatever test files are created they should be appended with the 'spec' keyword.
+(2) How to use Jasmine to test Node.js applications
+In order to use Jasmine to test Node.js applications, a series of steps needs to be followed.
+In our example below, we are going to define a module which add 2 numbers which need to be tested. We will then define a separate code file with the test code and then use jasmine to test the Add function accordingly.
+Step 1) Define the code which needs to be tested. We are going to define a function which will add 2 numbers and return the result. This code is going to be written in a file called "add.js."
+var exports=module.exports={};
+exports.AddNumber=function(a,b)
+{
+return a+b;
+};
+
+Code Explanation:
+The "exports" keyword is used to ensure that the functionality defined in this file can actually be accessed by other files.
+We are then defining a function called 'AddNumber.' This function is defined to take 2 parameters, a and b. The function is added to the module "exports" to make the function as a public function that can be accessed by other application modules.
+We are finally making our function return the added value of the parameters.
+
+Step 2) Next we need to define our jasmine test code which will be used to test our "Add" function In the Add.js file. The below code needs to put in a file called add-spec.js.
+Note: - The word 'spec' needs to be added to the test file so that it can be detected by jasmine.
+var app=require("../add.js");
+var app=require("../../calculator/add.js");
+describe("Addition",function(){
+it("The function should add 2 numbers",function() {
+var value=app.AddNumber(5,6);
+expect(value).toBe(11);
+});
+});
+Code Explanation:
+We need to first include our Add.js file so that we can test the 'AddNumber' function in this file.
+We are now creating our test module. The first part of the test module is to describe a method which basically gives a name for our test. In this case, the name of our test is "Addition".
+The next bit is to give a description for our test using the 'it' method.
+We now invoke our Addnumber method and send in 2 parameters 5 and 6. This will be passed to our Addnumber method in the App.js file. The return value is then stored in a variable called value.
+The final step is to do the comparison or our actual test. Since we expect the value returned by the Addnumber function to be 11, we define this using the method expect(value).toBe(the expected value).
+
+Output:
+In order to run the test, one needs to run the command   jasmine
+After the jasmine command is run , it will detect that there is a test called add-spec.js and execute that test accordingly. If there are any errors in the test, it will be shown accordingly.
+(A) Success Output
+Randomized with seed 57136
+Started
+.
+1 spec, 0 failures
+Finished in 0.015 seconds
+Randomized with seed 57136 (jasmine --random=true --seed=57136)
+
+(B) Failure Output
+Randomized with seed 05204
+Started
+F
+
+Failures:
+1) Addition The function should add 2 numbers
+  Message:
+    Expected 7 to be 11.
+  Stack:
+    Error: Expected 7 to be 11.
+        at <Jasmine>
+        at UserContext.<anonymous> (../add-spec.js:5:15)
+        at <Jasmine>
+
+1 spec, 1 failure
+Finished in 0 seconds
+Randomized with seed 05204 (jasmine --random=true --seed=05204
+Summary
+In order to test a Node.js application, the jasmine framework needs to be installed first. This is done by using the Node package manager.
+The test code needs to be written in a separate file, and the word 'spec' should be appended to the file name. Only if this is done will jasmine be able to detect that a file needs to be run.
+To run the test, you need to execute the jasmine command. This will find all files which have the 'spec' word attached to it and run the file accordingly.
+
+Reference Links:
+https://www.guru99.com/node-js-testing-jasmine.html
+https://jasmine.github.io/setup/nodejs.html
