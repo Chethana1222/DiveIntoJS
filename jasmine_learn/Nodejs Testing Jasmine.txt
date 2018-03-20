@@ -65,7 +65,7 @@ We now invoke our Addnumber method and send in 2 parameters 5 and 6. This will b
 The final step is to do the comparison or our actual test. Since we expect the value returned by the Addnumber function to be 11, we define this using the method expect(value).toBe(the expected value).
 
 Output:
-In order to run the test, one needs to run the command   jasmine
+In order to run the test, one needs to run the command   jasmine  or can run a single file using the command jasmine spec/add-spec.js
 After the jasmine command is run , it will detect that there is a test called add-spec.js and execute that test accordingly. If there are any errors in the test, it will be shown accordingly.
 (A) Success Output
 Randomized with seed 57136
